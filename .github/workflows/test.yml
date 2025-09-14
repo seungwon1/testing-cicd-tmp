@@ -1,0 +1,19 @@
+name: My First Workflow
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+    - name: Install pytest
+      run: pip install pytest
+    - name: Run tests
+      run: pytest
+    - name: Success message
+      run: echo "All tests passed! 🎉"
